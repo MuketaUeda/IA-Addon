@@ -97,7 +97,8 @@ public class ResearchService {
                 prompt.append("Faça uma análise detalhada do seguinte texto:\n\n ");
                 break;
             case "translate":
-                prompt.append("Traduza o seguinte texto para o idioma desejado:\n\n ");
+                String targetLang = request.getTargetLanguage() != null ? request.getTargetLanguage() : "português brasileiro";
+                prompt.append("Traduza o texto abaixo para ").append(targetLang).append(". Responda APENAS com a tradução:\n\n ");
                 break;
             default:
                 throw new IllegalArgumentException("Operação não suportada: " + request.getOperation());

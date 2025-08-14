@@ -1,0 +1,38 @@
+{
+  "name": "Research Assistant React",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "IA research assistant built with React and Tailwind CSS",
+  "permissions": ["activeTab", "scripting", "storage", "sidePanel"],
+  "action": {
+    "default_title": "Research Assistant",
+    "default_icon": {
+      "16": "icon-16.png",
+      "32": "icon-32.png",
+      "48": "icon-48.png",
+      "128": "icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icon-16.png",
+    "32": "icon-32.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": ["http://localhost:8080/*", "<all_urls>"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

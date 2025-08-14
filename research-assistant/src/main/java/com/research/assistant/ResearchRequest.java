@@ -8,5 +8,7 @@ public class ResearchRequest {
     private String content;
     // Operation type: summarize, analyze, translate
     private String operation;
+    // Target language for translation (optional)
+    private String targetLanguage;
     
 }
